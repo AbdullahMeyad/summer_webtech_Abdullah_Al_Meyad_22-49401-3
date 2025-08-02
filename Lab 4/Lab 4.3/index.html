@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Change Text Color</title>
+  <style>
+    .color-box {
+      margin-top: 20px;
+      padding: 20px;
+      font-size: 24px;
+      border: 1px solid #ccc;
+      text-align: center;
+    }
+    input, button {
+      padding: 8px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Change Text Color</h2>
+  <input type="text" id="colorInput" placeholder="Enter a color (e.g. red or #00ff00)">
+  <button onclick="changeColor()">Apply Color</button>
+
+  <div class="color-box" id="textBox">This is a sample text</div>
+
+  <script>
+    function changeColor() {
+      const color = document.getElementById('colorInput').value;
+      document.getElementById('textBox').style.color = color;
+    }
+  </script>
+</body>
+</html>
