@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - ChakriBakri</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/login.css">
+</head>
+
+<body>
+  <!-- Contact Popup -->
+  <div class="contact-popup" id="contactPopup">
+    <div class="contact-content">
+      <button class="close-popup" id="closePopup">&times;</button>
+      <h2>Contact Us</h2>
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-phone"></i>
+          </div>
+          <div class="contact-details">
+            <h3>Phone Number</h3>
+            <p>01880255417</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="contact-details">
+            <h3>Email Address</h3>
+            <p>22-49401-3@student.aiub.edu</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <a href="home.html" style="text-decoration: none; color: inherit;">
+      <h1>Chakri<span>Bakri</span></h1>
+    </a>
+    <div class="menu-toggle">☰</div>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="home.html#jobs">Jobs</a></li>
+        <li><a href="signUp.html" class="login-btn">Signup</a></li>
+        <li><a href="#" id="contactLink">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="main-container">
+    <div class="login-container">
+      <div class="login-left">
+        <h2>Welcome Back!</h2>
+        <p>Sign in to access your personalized job dashboard and continue your search for the perfect student job.</p>
+
+        <ul class="benefits">
+          <li><i class="fas fa-briefcase"></i> Access thousands of student jobs</li>
+          <li><i class="fas fa-bell"></i> Get notified about new opportunities</li>
+          <li><i class="fas fa-rocket"></i> Fast-track your applications</li>
+          <li><i class="fas fa-chart-line"></i> Track your application status</li>
+        </ul>
+      </div>
+
+      <div class="login-right">
+        <h2>Login to Your Account</h2>
+        <p class="login-subtitle">Enter your credentials to continue your job search</p>
+
+        <form method="POST" id="loginForm">
+          <!-- Hidden field to tell controller this is a login -->
+          <input type="hidden" name="action" value="login">
+
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <div class="input-with-icon">
+              <i class="fas fa-envelope"></i>
+              <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="error-message" id="emailError">Please enter a valid email address</div>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <div class="input-with-icon password-container">
+              <i class="fas fa-lock"></i>
+              <input type="password" id="password" name="password" placeholder="Enter your password" required>
+              <button type="button" class="toggle-password" id="togglePassword">
+                <i class="fas fa-eye"></i>
+              </button>
+            </div>
+            <div class="error-message" id="passwordError">Password must be at least 8 characters</div>
+          </div>
+
+          <div class="remember-forgot">
+            <div class="remember-me">
+              <input type="checkbox" id="remember" name="remember">
+              <label for="remember">Remember me</label>
+            </div>
+            <a href="forgotPassword.html" class="forgot-password">Forgot Password?</a>
+          </div>
+
+          <button type="submit" class="login-button">Login</button>
+        </form>
+
+
+
+        <div class="signup-link">
+          Don't have an account? <a href="../html/signUp.html">Sign up now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer id="footer">
+    <p>&copy; 2025 ChakriBakri - Student Job Portal</p>
+    <p>
+      <a href="about.html">About Us</a> |
+      <a href="#" id="footerContactLink">Contact</a> |
+      <a href="privacy.html">Privacy Policy</a> |
+      <a href="terms.html">Terms of Service</a>
+    </p>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/share/1PdjBKv6e5/"><i class="fab fa-facebook"></i></a>
+      <a href="https://x.com/aiub_edu"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.linkedin.com/in/abdullah-al-meyad-7466a7252"><i class="fab fa-linkedin"></i></a>
+      <a href="https://www.instagram.com/abdullah_meyad"><i class="fab fa-instagram"></i></a>
+    </div>
+  </footer>
+
+  <script src="../js/login.js"></script>
+</body>
+
+</html>

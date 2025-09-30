@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChakriBakri - Find Student Jobs</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/home.css">
+</head>
+
+<body>
+
+  <!-- Contact Popup -->
+  <div class="contact-popup" id="contactPopup">
+    <div class="contact-content">
+      <button class="close-popup" id="closePopup">&times;</button>
+      <h2>Contact Us</h2>
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-phone"></i>
+          </div>
+          <div class="contact-details">
+            <h3>Phone Number</h3>
+            <p>01880255417</p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="contact-details">
+            <h3>Email Address</h3>
+            <p>22-49401-3@student.aiub.edu</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <a href="home.html" class="logo">
+      <h1>Chakri<span>Bakri</span></h1>
+    </a>
+    <div class="menu-toggle">☰</div>
+    <nav>
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#jobs">Jobs</a></li>
+        <li><a href="signUp.html">Sign Up</a></li>
+        <li><a href="#" id="contactLink">Contact</a></li>
+        <li><a href="login.html" class="login-btn">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="hero">
+      <div class="hero-left">
+        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1000&q=80" alt="Students working together">
+      </div>
+      <div class="hero-right">
+        <h2>Find Your Perfect Student Job</h2>
+        <p>Connect with thousands of employers looking for student talent. Flexible hours, competitive pay, and career-building opportunities.</p>
+        <div class="search-bar">
+          <input type="text" id="jobSearch" placeholder="Search for jobs, internships, or companies...">
+          <button onclick="filterJobs()">Search</button>
+        </div>
+        
+        <div class="stats">
+          <div class="stat-item">
+            <span class="stat-number">5,000+</span>
+            <span class="stat-label">Jobs Available</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">2,500+</span>
+            <span class="stat-label">Happy Students</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">300+</span>
+            <span class="stat-label">Partner Companies</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="featured-jobs" id="jobs">
+      <h3>Featured Jobs</h3>
+      <div class="job-grid" id="jobGrid">
+        <div class="job-card">
+          <h4>Intern - Web Developer</h4>
+          <p class="company">TechStart</p>
+          <p class="details">Remote • $20-25/hr • Part-time</p>
+          <p>Develop and maintain web applications using modern frameworks. Perfect for CS students.</p>
+          <div class="tags">
+            <span class="tag">React</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">JavaScript</span>
+          </div>
+        </div>
+        <div class="job-card">
+          <h4>Part-time Tutor</h4>
+          <p class="company">EduCare</p>
+          <p class="details">On-campus • $18-22/hr • Flexible</p>
+          <p>Help fellow students succeed in challenging subjects. Set your own schedule.</p>
+          <div class="tags">
+            <span class="tag">Teaching</span>
+            <span class="tag">Flexible</span>
+            <span class="tag">On-campus</span>
+          </div>
+        </div>
+        <div class="job-card">
+          <h4>Campus Ambassador</h4>
+          <p class="company">StartupX</p>
+          <p class="details">Hybrid • $15/hr + bonuses • Part-time</p>
+          <p>Represent innovative brands on your campus. Build marketing skills and network.</p>
+          <div class="tags">
+            <span class="tag">Marketing</span>
+            <span class="tag">Social Media</span>
+            <span class="tag">Networking</span>
+          </div>
+        </div>
+        <div class="job-card">
+          <h4>Graphic Designer</h4>
+          <p class="company">CreativeHub</p>
+          <p class="details">Remote • $22-28/hr • Flexible hours</p>
+          <p>Create visual content for digital platforms. Build your portfolio while studying.</p>
+          <div class="tags">
+            <span class="tag">Photoshop</span>
+            <span class="tag">Illustrator</span>
+            <span class="tag">UI/UX</span>
+          </div>
+        </div>
+      </div>
+      <div class="cta" id="cta">
+        <a href="signUp.html">
+          <button>Sign Up to Apply</button>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer">
+    <p>&copy; 2025 ChakriBakri - Student Job Portal</p>
+    <p>
+      <a href="about.html">About Us</a> |
+      <a href="#" id="footerContactLink">Contact</a> |
+      <a href="privacy.html">Privacy Policy</a> |
+      <a href="terms.html">Terms of Service</a>
+    </p>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/share/1PdjBKv6e5/"><i class="fab fa-facebook"></i></a>
+      <a href="https://x.com/aiub_edu"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.linkedin.com/in/abdullah-al-meyad-7466a7252"><i class="fab fa-linkedin"></i></a>
+      <a href="https://www.instagram.com/abdullah_meyad"><i class="fab fa-instagram"></i></a>
+    </div>
+  </footer>
+
+  <script src="../js/home.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile - ChakriBakri</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/profile.css">
+</head>
+<body>
+  <header>
+    <a href="home.html" style="text-decoration: none; color: inherit;">
+      <h1>Chakri<span>Bakri</span></h1>
+    </a>
+    <div class="menu-toggle">☰</div>
+    <nav>
+      <ul>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="profile.html" class="active">Profile</a></li>
+        <li><a href="#" id="logoutLink">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="main-container">
+    <div class="profile-container">
+      <h2>My Profile</h2>
+      <div id="message-container"></div>
+      <form id="profileForm" enctype="multipart/form-data">
+        <div class="profile-header">
+          <div class="profile-picture-container">
+            <img id="profileImagePreview" src="https://placehold.co/150x150/EFEFEF/AAAAAA?text=No+Image" alt="Varsity ID Picture">
+            <label for="varsityIdPicture" class="upload-btn">
+              <i class="fas fa-camera"></i> Change
+              <input type="file" id="varsityIdPicture" name="varsity_id_picture" accept="image/*" disabled>
+            </label>
+          </div>
+          <div class="profile-info-summary">
+            <h3 id="userName">Loading...</h3>
+            <p id="userRole">Loading...</p>
+          </div>
+        </div>
+
+        <div class="profile-details">
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" id="firstName" name="first_name" required disabled>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" id="lastName" name="last_name" required disabled>
+            </div>
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" disabled>
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required disabled>
+            </div>
+            <div class="form-group">
+                <label for="phoneNumber">Phone Number</label>
+                <input type="tel" id="phoneNumber" name="phone_number" disabled>
+            </div>
+            <div class="form-group">
+                <label for="nid">NID</label>
+                <input type="text" id="nid" name="nid" disabled>
+            </div>
+            <div class="form-group">
+                <label for="university">University</label>
+                <input type="text" id="university" name="university" disabled>
+            </div>
+            <div class="form-group">
+                <label for="department">Department</label>
+                <input type="text" id="department" name="department" disabled>
+            </div>
+            <div class="form-group full-width">
+                <label for="varsityId">Varsity ID</label>
+                <input type="text" id="varsityId" name="varsity_id" disabled>
+            </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" id="editButton" class="btn-primary">Edit Profile</button>
+          <button type="submit" id="saveButton" class="btn-primary" style="display: none;">Save Changes</button>
+          <button type="button" id="cancelButton" class="btn-outline" style="display: none;">Cancel</button>
+          <button type="button" id="deleteAccountButton" class="btn-danger">Delete Account</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Delete Account Confirmation Modal -->
+  <div id="deleteModal" class="modal">
+    <div class="modal-content">
+      <h3>Confirm Account Deletion</h3>
+      <p>Are you sure you want to delete your account? This action is irreversible, and all your data will be permanently lost.</p>
+      <div class="modal-actions">
+        <button id="confirmDeleteButton" class="btn-danger">Yes, Delete My Account</button>
+        <button id="cancelDeleteButton" class="btn-outline">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <footer id="footer">
+    <p>&copy; 2025 ChakriBakri - Student Job Portal</p>
+  </footer>
+
+  <script src="../js/profile.js"></script>
+</body>
+</html>

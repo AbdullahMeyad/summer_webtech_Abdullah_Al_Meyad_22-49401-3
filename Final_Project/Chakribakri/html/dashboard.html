@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - ChakriBakri</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+  <header>
+    <a href="home.html" style="text-decoration: none; color: inherit;">
+      <h1>Chakri<span>Bakri</span></h1>
+    </a>
+    <div class="menu-toggle">☰</div>
+    <nav>
+      <ul>
+        <li><a href="dashboard.html" class="active">Dashboard</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="#" id="logoutLink">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="main-container">
+    <div class="dashboard-header">
+      <h2 id="welcomeMessage">Job Dashboard</h2>
+      <button class="btn-primary" id="postJobBtn">Post a Job</button>
+    </div>
+
+    <div class="filter-section">
+      <h3>Filter Jobs</h3>
+      <div class="filter-controls">
+        <div class="filter-group">
+          <label for="salaryFilter">Salary Range</label>
+          <select id="salaryFilter">
+            <option value="">Any Salary</option>
+            <option value="0-10000">Below 10,000 BDT</option>
+            <option value="10000-20000">10,000 - 20,000 BDT</option>
+            <option value="20000-30000">20,000 - 30,000 BDT</option>
+            <option value="30000+">Above 30,000 BDT</option>
+          </select>
+        </div>
+        
+        <div class="filter-group">
+          <label for="jobTypeFilter">Job Type</label>
+          <select id="jobTypeFilter">
+            <option value="">All Types</option>
+            <option value="part-time">Part-time</option>
+            <option value="full-time">Full-time</option>
+            <option value="project">Project-based</option>
+            <option value="tuition">Tuition</option>
+          </select>
+        </div>
+        
+        <button class="btn-secondary" id="applyFilters">Apply Filters</button>
+        <button class="btn-outline" id="clearFilters">Clear Filters</button>
+      </div>
+    </div>
+
+    <div class="jobs-container">
+      <h3>Available Jobs</h3>
+      <div id="jobsList" class="jobs-list">
+        </div>
+    </div>
+
+    <div id="postJobModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Post a New Job</h3>
+          <span class="close">&times;</span>
+        </div>
+        <form id="postJobForm" class="modal-body">
+          <div class="form-group">
+            <label for="jobTitle">Job Title</label>
+            <input type="text" id="jobTitle" name="jobTitle" required>
+          </div>
+
+          <div class="form-group">
+            <label for="company">Company Name</label>
+            <input type="text" id="company" name="company" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="jobDescription">Job Description</label>
+            <textarea id="jobDescription" name="jobDescription" rows="4" required></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label for="jobType">Job Type</label>
+            <select id="jobType" name="jobType" required>
+              <option value="">Select Job Type</option>
+              <option value="part-time">Part-time</option>
+              <option value="full-time">Full-time</option>
+              <option value="project">Project-based</option>
+              <option value="tuition">Tuition</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="salary">Salary (BDT)</label>
+            <input type="number" id="salary" name="salary" min="0" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="location">Location</label>
+            <input type="text" id="location" name="location" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="applicationDeadline">Application Deadline</label>
+            <input type="date" id="applicationDeadline" name="applicationDeadline" required>
+          </div>
+          
+          <button type="submit" class="btn-primary">Post Job</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="jobDetailsModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 id="modalJobTitle">Job Title</h3>
+          <span class="close">&times;</span>
+        </div>
+        <div class="modal-body">
+            <div class="job-details">
+              <p><strong>Type:</strong> <span id="modalJobType"></span></p>
+              <p><strong>Salary:</strong> <span id="modalSalary"></span> BDT</p>
+              <p><strong>Location:</strong> <span id="modalLocation"></span></p>
+              <p><strong>Posted On:</strong> <span id="modalPostedDate"></span></p>
+              <p><strong>Deadline:</strong> <span id="modalDeadline"></span></p>
+              <div class="job-description">
+                <h4>Job Description</h4>
+                <p id="modalDescription"></p>
+              </div>
+            </div>
+        </div>
+        <div class="modal-actions">
+          <button id="applyJobBtn" class="btn-primary">Apply Now</button>
+          <button class="btn-outline close-modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer id="footer">
+    <p>&copy; 2025 ChakriBakri - Student Job Portal</p>
+    <p>
+      <a href="about.html">About Us</a> |
+      <a href="#" id="footerContactLink">Contact</a> |
+      <a href="privacy.html">Privacy Policy</a> |
+      <a href="terms.html">Terms of Service</a>
+    </p>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/share/1PdjBKv6e5/"><i class="fab fa-facebook"></i></a>
+      <a href="https://x.com/aiub_edu"><i class="fab fa-twitter"></i></a>
+      <a href="https://www.linkedin.com/in/abdullah-al-meyad-7466a7252"><i class="fab fa-linkedin"></i></a>
+      <a href="https://www.instagram.com/abdullah_meyad"><i class="fab fa-instagram"></i></a>
+    </div>
+  </footer>
+
+  <script src="../js/dashboard.js"></script>
+</body>
+</html>

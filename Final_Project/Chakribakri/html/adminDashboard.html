@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard - ChakriBakri</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/adminDashboard.css">
+</head>
+<body>
+  <header>
+    <a href="home.html" style="text-decoration: none; color: inherit;">
+      <h1>Chakri<span>Bakri</span> - Admin Panel</h1>
+    </a>
+    <div class="menu-toggle">☰</div>
+    <nav>
+      <ul>
+        <li><a href="dashboard.html">User Dashboard</a></li>
+        <li><a href="#" id="logoutLink">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="main-container">
+    <div class="dashboard-header">
+      <h2 id="welcomeMessage">Admin Dashboard</h2>
+      <div class="admin-stats">
+        <div class="stat-card">
+          <h3 id="totalUsers">0</h3>
+          <p>Total Users</p>
+        </div>
+        <div class="stat-card">
+          <h3 id="totalJobs">0</h3>
+          <p>Total Jobs</p>
+        </div>
+        <div class="stat-card">
+          <h3 id="totalApplications">0</h3>
+          <p>Total Applications</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="admin-tabs">
+        <button class="tab-button active" data-tab="users-tab">Users</button>
+        <button class="tab-button" data-tab="jobs-tab">Jobs</button>
+    </div>
+
+    <div id="users-tab" class="tab-content active">
+      <div class="section-header">
+          <h3>User Management</h3>
+          <button class="btn-primary" id="addUserBtn">Add User</button>
+      </div>
+
+      <div class="filter-controls">
+          <div class="filter-group">
+              <label for="userRoleFilter">Filter by Role:</label>
+              <select id="userRoleFilter">
+                  <option value="">All Roles</option>
+                  <option value="student">Student</option>
+                  <option value="faculty">Faculty</option>
+              </select>
+          </div>
+          <button class="btn-outline" id="applyUserFilters">Apply</button>
+          <button class="btn-outline" id="clearUserFilters">Clear</button>
+      </div>
+
+      <div class="table-container">
+          <table class="data-table">
+              <thead>
+                  <tr>
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Role</th>
+                      <th>Joined Date</th>
+                      <th>Actions</th>
+                  </tr>
+              </thead>
+              <tbody id="usersTableBody">
+                  </tbody>
+          </table>
+      </div>
+    </div>
+    
+    <div id="jobs-tab" class="tab-content">
+      <div class="section-header">
+        <h3>Job Management</h3>
+        <button class="btn-primary" id="addJobBtn">Add Job</button>
+      </div>
+
+      <div class="filter-controls">
+        <div class="filter-group">
+            <label for="jobTypeFilter">Filter by Type:</label>
+            <select id="jobTypeFilter">
+                <option value="">All Types</option>
+                <option value="part-time">Part-time</option>
+                <option value="full-time">Full-time</option>
+                <option value="project">Project-based</option>
+                <option value="tuition">Tuition</option>
+            </select>
+        </div>
+        <button class="btn-outline" id="applyJobFilters">Apply</button>
+        <button class="btn-outline" id="clearJobFilters">Clear</button>
+      </div>
+
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Title</th>
+              <th>Company</th>
+              <th>Type</th>
+              <th>Salary (BDT)</th>
+              <th>Posted By</th>
+              <th>Posted Date</th> <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="jobsTableBody">
+            </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="userModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="userModalTitle">Add New User</h2>
+      <form id="userForm">
+        <input type="hidden" id="userId" name="id">
+        <div class="form-group">
+          <label for="userFirstName">First Name</label>
+          <input type="text" id="userFirstName" name="firstName" required>
+        </div>
+        <div class="form-group">
+          <label for="userLastName">Last Name</label>
+          <input type="text" id="userLastName" name="lastName" required>
+        </div>
+        <div class="form-group">
+          <label for="userEmail">Email</label>
+          <input type="email" id="userEmail" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="userPassword">Password</label>
+          <input type="password" id="userPassword" name="password" required>
+        </div>
+        <div class="form-group">
+          <label for="userRole">Role</label>
+          <select id="userRole" name="role" required>
+            <option value="student">Student</option>
+            <option value="faculty">Faculty</option>
+            <option value="admin">Admin</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-primary" id="saveUserBtn">Save User</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="jobModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2 id="jobModalTitle">Add New Job</h2>
+      <form id="jobForm">
+        <input type="hidden" id="jobId" name="id">
+        <div class="form-group">
+          <label for="jobTitle">Job Title</label>
+          <input type="text" id="jobTitle" name="title" required>
+        </div>
+        <div class="form-group">
+          <label for="jobCompany">Company</label>
+          <input type="text" id="jobCompany" name="company" required>
+        </div>
+        <div class="form-group">
+          <label for="jobDescription">Job Description</label>
+          <textarea id="jobDescription" name="description" rows="4" required></textarea>
+        </div>
+        <div class="form-group">
+          <label for="jobRequirements">Requirements</label>
+          <textarea id="jobRequirements" name="requirements" rows="4" required></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label for="jobType">Job Type</label>
+          <select id="jobType" name="jobType" required>
+            <option value="">Select Job Type</option>
+            <option value="part-time">Part-time</option>
+            <option value="full-time">Full-time</option>
+            <option value="project">Project-based</option>
+            <option value="tuition">Tuition</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label for="jobSalary">Salary (BDT)</label>
+          <input type="number" id="jobSalary" name="salary" min="0" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="jobLocation">Location</label>
+          <input type="text" id="jobLocation" name="location" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="jobDeadline">Application Deadline</label>
+          <input type="date" id="jobDeadline" name="deadline" required>
+        </div>
+        
+        <button type="submit" class="btn-primary" id="saveJobBtn">Save Job</button>
+      </form>
+    </div>
+  </div>
+
+  <footer id="footer">
+    <p>&copy; 2025 ChakriBakri. All rights reserved.</p>
+  </footer>
+
+  <script src="../js/adminDashboard.js"></script>
+</body>
+</html>
